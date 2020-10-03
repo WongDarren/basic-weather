@@ -13,15 +13,11 @@ weatherForm.addEventListener('submit', (e) => {
 	locationText.textContent = 'Loading . . .';
 	tempText.textContent = '';
 
-	fetch(
-		'http://localhost:3000/weather?address=' + encodeURIComponent(address)
-	).then((response) => {
+	fetch('/weather?address=' + encodeURIComponent(address)).then((response) => {
 		response.json().then((data) => {
 			if (data.error) {
-				console.log(data.error);
 				locationText.textContent = 'Error!';
 			} else {
-				console.log(data.forecast);
 				locationText.textContent = 'Location: ' + data.forecast.location;
 				tempText.textContent =
 					'Temperature is ' + data.forecast.temp + ' celsius';
