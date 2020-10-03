@@ -16,9 +16,14 @@ const forecast = (address, callback) => {
 		} else {
 			callback(undefined, {
 				temp: body.current.temperature,
+				windSpeed: body.current.wind_speed,
+				rainChance: body.current.precip,
+				humidity: body.current.humidity,
 				longitude: body.location.lon,
 				latitude: body.location.lat,
-				location: body.location.name,
+				name: body.location.name,
+				region: body.location.region,
+				country: body.location.country,
 			});
 		}
 	});

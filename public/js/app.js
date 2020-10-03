@@ -18,9 +18,15 @@ weatherForm.addEventListener('submit', (e) => {
 			if (data.error) {
 				locationText.textContent = 'Error!';
 			} else {
-				locationText.textContent = 'Location: ' + data.forecast.location;
+				locationText.textContent =
+					data.forecast.name + ', ' + data.forecast.region;
+
 				tempText.textContent =
-					'Temperature is ' + data.forecast.temp + ' celsius';
+					'It is ' +
+					data.forecast.temp +
+					' degrees celsius outside. With a ' +
+					data.forecast.rainChance +
+					'% chance of rain.';
 			}
 		});
 	});
